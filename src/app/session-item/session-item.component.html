@@ -1,0 +1,21 @@
+<h2>{{session.name}}</h2>
+<div>{{session.track}}</div>
+<div>Prévue le {{session.date | date:'d MMM y'}}  pendant {{session.duree}} jours à {{session.local}}</div>
+<div *ngIf="session.participants<20;then b1 else b2"></div>
+<ng-template #b1>Encore {{20-session.participants}} places sont disponibles</ng-template>
+<ng-template #b2>Session complète!</ng-template>
+<div>{{session.participants}} participants</div>
+<div class="tools">
+ <a class="delete">
+ Details
+ </a>
+<!-- <a *ngIf="session.participants<20" class="inscrire" (click)="inscrire()">
+ Inscription
+ </a>-->
+ <a [appInscriptionDisableDirective]="session.isCompleted" class="inscrire" (click)="inscrire()">
+    Inscription
+    </a>
+ <a class="partager">
+ Partager
+ </a>
+</div>

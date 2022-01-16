@@ -1,0 +1,4 @@
+<header> <h1>Liste des sessions de formation </h1></header>
+<section>
+    <app-session-item  *ngFor="let course of sessionItems"[ngClass]="{'session-web': course.name==='Web','session-mobile' : course.name==='Mobile'}" [session]="course"></app-session-item>
+</section>
